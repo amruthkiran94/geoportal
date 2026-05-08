@@ -37,7 +37,7 @@
             link: "http://www.example.com"
         },*/
     // This is used in various text messages. You should also set <title> in index.html
-    "appName": "Terria Map",
+    "appName": "IIHS Geospatial Lab Geoportal",
     // See comments in lib/Views/global.scss for further information about customising colors, logos, fonts etc.
     "brandBarElements": [
       "",
@@ -45,7 +45,8 @@
       ""
     ],
     // Shown when things go wrong.
-    "supportEmail": "help@example.com",
+    "supportEmail": "geospatial.lab@iihs.ac.in",
+    "aboutButtonHrefUrl": "https://gis.iihs.co.in",
     // You probably shouldn't change this.
     "proj4ServiceBaseUrl": "proj4def/",
     // Or this
