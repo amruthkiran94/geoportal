@@ -29,3 +29,7 @@ yarn-error.log
 
 package-lock.json
 .nvmrc
+
+# Production credentials — never commit these
+.env
+serverconfig.production.json

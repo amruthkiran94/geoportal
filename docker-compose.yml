@@ -7,11 +7,18 @@ services:
     image: iihs-geoportal:latest
     container_name: iihs-geoportal
     restart: unless-stopped
-    # Bind to localhost only — nginx proxies from outside
     ports:
       - "127.0.0.1:3020:3020"
+    # Mount production serverconfig (with MinIO credentials) over the baked-in one
+    volumes:
+      - ./serverconfig.production.json:/app/serverconfig.json:ro
     environment:
       - NODE_ENV=production
+    depends_on:
+      minio:
+        condition: service_healthy
+      minio-init:
+        condition: service_completed_successfully
     healthcheck:
       test:
         [
@@ -24,3 +31,40 @@ services:
       timeout: 10s
       retries: 3
       start_period: 60s
+
+  minio:
+    image: minio/minio:latest
+    container_name: iihs-minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    ports:
+      - "127.0.0.1:9000:9000" # S3 API  — internal only, proxied by nginx if needed
+      - "127.0.0.1:9001:9001" # Web console — internal only
+    env_file: .env
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # One-time init: creates the share bucket if it doesn't exist
+  minio-init:
+    image: minio/mc:latest
+    container_name: iihs-minio-init
+    depends_on:
+      minio:
+        condition: service_healthy
+    env_file: .env
+    entrypoint: >
+      /bin/sh -c "
+      mc alias set local http://minio:9000 $$MINIO_ROOT_USER $$MINIO_ROOT_PASSWORD &&
+      mc mb --ignore-existing local/terriajs-shares &&
+      echo 'Share bucket ready'
+      "
+    restart: "no"
+
+volumes:
+  minio_data:
