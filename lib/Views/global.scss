@@ -7,6 +7,17 @@ body {
 }
 
 :global {
+  // Hide 3D Terrain and 3D Smooth viewer mode buttons — portal is 2D only.
+  // Structure: .tjs-panel__content > div (Box) > div:nth-child(2) (FlexGrid) > buttons 1 & 2
+  .tjs-setting-panel__dropdown-inner
+    .tjs-panel__content
+    > div
+    > div:first-child
+    + div
+    > *:nth-child(-n + 2) {
+    display: none;
+  }
+
   @media print {
     .nationalmap-print-disclaimer {
       color: #000;

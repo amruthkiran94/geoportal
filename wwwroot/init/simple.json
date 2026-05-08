@@ -1,9 +1,9 @@
 {
   "homeCamera": {
-    "north": -8,
-    "east": 158,
-    "south": -45,
-    "west": 109
+    "north": 37.1,
+    "east": 97.4,
+    "south": 7.9,
+    "west": 68.1
   },
   "catalog": [
     {
@@ -719,9 +719,44 @@
       ]
     }
   ],
-  "viewerMode": "3dSmooth",
+  "viewerMode": "2d",
   "baseMaps": {
     "defaultBaseMapId": "basemap-openstreetmap",
-    "previewBaseMapId": "basemap-natural-earth-II"
+    "previewBaseMapId": "basemap-openstreetmap",
+    "enabledBaseMaps": [
+      "basemap-openstreetmap",
+      "basemap-positron-light",
+      "basemap-positron-dark"
+    ],
+    "items": [
+      {
+        "item": { "id": "basemap-openstreetmap" },
+        "image": "images/basemaps/openstreetmap.png"
+      },
+      {
+        "item": {
+          "id": "basemap-positron-light",
+          "name": "Positron Light",
+          "type": "url-template-imagery",
+          "url": "https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
+          "attribution": "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors © <a href='https://carto.com/attributions'>CARTO</a>",
+          "opacity": 1.0
+        },
+        "image": "images/basemaps/positron-light.png",
+        "contrastColor": "#000000"
+      },
+      {
+        "item": {
+          "id": "basemap-positron-dark",
+          "name": "Positron Dark",
+          "type": "url-template-imagery",
+          "url": "https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
+          "attribution": "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors © <a href='https://carto.com/attributions'>CARTO</a>",
+          "opacity": 1.0
+        },
+        "image": "images/basemaps/positron-dark.png",
+        "contrastColor": "#ffffff"
+      }
+    ]
   }
 }

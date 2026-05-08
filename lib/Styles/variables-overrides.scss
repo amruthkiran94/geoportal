@@ -1,4 +1,6 @@
-@forward "~terriajs/lib/Sass/common/_default_variables.scss";
+@forward "~terriajs/lib/Sass/common/_default_variables.scss" with (
+  $color-primary: #881802
+);
 /**
 // To customise the look of your map, uncomment and change values here (remove line above after uncommenting) and in lib/Views/global.scss
 
