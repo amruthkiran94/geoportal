@@ -42,7 +42,7 @@ sudo apt install -y git
 
 ```bash
 cd /opt
-sudo git clone https://github.com/amruthkiran94/TerriaMap.git geoportal
+sudo git clone https://github.com/iihs-gsl/geospatial-lab-geoportal.git geoportal
 sudo chown -R $USER:$USER /opt/geoportal
 cd /opt/geoportal
 ```

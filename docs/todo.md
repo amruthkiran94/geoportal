@@ -83,7 +83,7 @@ Status key: ✅ Done · 🔲 Pending · ⏸ Deferred
 - ✅ Remove unused Bing/topo basemap preview images
 - ✅ Set `defaultViewerMode` and `mobileDefaultViewerMode` to `2d`
 - ✅ App name, support email, about URL, page title set
-- ✅ Git setup: TerriaMap fork (`amruthkiran94/TerriaMap`) + docs repo (`amruthkiran94/geoportal`)
+- ✅ Git setup: TerriaMap fork (`iihs-gsl/geospatial-lab-geoportal
 - ✅ Dockerised: Node 22, port 3020, health check, `yarn gulp release` build
 - ✅ nginx HTTP reverse proxy for `geoportal.gis.iihs.co.in`
 - ✅ Deployed to production at `http://geoportal.gis.iihs.co.in`
