@@ -33,3 +33,6 @@ package-lock.json
 # Production credentials — never commit these
 .env
 serverconfig.production.json
+
+# Claude Code local settings
+.claude/
