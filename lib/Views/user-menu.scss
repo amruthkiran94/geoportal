@@ -1,14 +1,36 @@
+// Styles for the Sign Out toolbar button.
+// Properties mirror .btn + .btn--map WITHOUT using composes, which would
+// re-inject _buttons.scss into the bundle after catalog styles and break
+// the catalog panel's font-weight and icon rendering.
+
 .sign-out-btn {
-  composes: btn from "~terriajs/lib/Sass/common/_buttons.scss";
-  composes: btn--map from "~terriajs/lib/Sass/common/_buttons.scss";
+  // from .btn
+  background-color: transparent;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-weight: normal;
+  box-shadow: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+
+  // from .btn--map + TerriaMap global.scss override
+  background: #111827;
   color: white;
-  padding-left: 10px;
-  padding-right: 10px;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  min-height: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
   border-radius: 4px !important;
 
-  &:focus,
-  &:hover {
-    opacity: 1;
+  &:hover,
+  &:focus {
+    opacity: 0.9;
     color: white;
   }
 }
