@@ -1,9 +1,13 @@
 import PropTypes from "prop-types";
 import RelatedMaps from "terriajs/lib/ReactViews/RelatedMaps/RelatedMaps";
-import { MenuLeft } from "terriajs/lib/ReactViews/StandardUserInterface/customizable/Groups";
+import {
+  Menu,
+  MenuLeft
+} from "terriajs/lib/ReactViews/StandardUserInterface/customizable/Groups";
 import MenuItem from "terriajs/lib/ReactViews/StandardUserInterface/customizable/MenuItem";
 import StandardUserInterface from "terriajs/lib/ReactViews/StandardUserInterface/StandardUserInterface";
 import version from "../../version";
+import UserMenuItem from "./UserMenuItem";
 
 export const TerriaUserInterface = ({ terria, viewState, themeOverrides }) => {
   const relatedMaps = viewState.terria.configParameters.relatedMaps;
@@ -29,6 +33,9 @@ export const TerriaUserInterface = ({ terria, viewState, themeOverrides }) => {
           <RelatedMaps relatedMaps={relatedMaps} />
         ) : null}
       </MenuLeft>
+      <Menu>
+        <UserMenuItem />
+      </Menu>
     </StandardUserInterface>
   );
 };

@@ -4,6 +4,7 @@ import React, { Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import Variables from "../Styles/variables.scss";
 import "./global.scss";
+import AccessDenied from "./AccessDenied";
 import { Loader } from "./Loader";
 import { terriaStore } from "./terriaStore";
 
@@ -17,9 +18,8 @@ const LazyTerriaUserInterface = React.lazy(() =>
 const Root = observer(({ themeOverrides }) => {
   const { terria, viewState, status } = terriaStore;
 
-  if (status === "loading") {
-    return <Loader />;
-  }
+  if (status === "loading") return <Loader />;
+  if (status === "access-denied") return <AccessDenied />;
 
   return (
     <Suspense fallback={<Loader />}>

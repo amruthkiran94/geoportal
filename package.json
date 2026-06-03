@@ -24,6 +24,7 @@
     "url": "http://github.com/TerriaJS/TerriaMap"
   },
   "dependencies": {
+    "keycloak-js": "^26.2.4",
     "terriajs-server": "5.0.0-alpha.2"
   },
   "config": {

@@ -1,0 +1,4 @@
+TerriaMap Links to refer while building
+1. Github - https://github.com/TerriaJS/TerriaMap
+2. Docs - https://docs.terria.io/guide/
+3. Docs Github - https://github.com/TerriaJS/TerriaJS/tree/main/doc
